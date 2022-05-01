@@ -1,4 +1,3 @@
-import getRandomHexColor from '';
 const btnStart = document.querySelector('button[data-start]');
 const btnFinish = document.querySelector('button[data-finish]');
 const bodyColor = document.querySelector('body');
@@ -10,5 +9,14 @@ function getRandomHexColor() {
 };
 
 btnStart.addEventListener("click", () => {
+    timerId = setInterval(() => {
+    document.body.style.backgroundColor = getRandomHexColor();}, 1000);
+    btnStart.disabled = true;
+    btnFinish.disabled = false;
+});
 
-})
+btnFinish.addEventListener('click', () => {
+    clearInterval(timerId);
+    btnStart.disabled = false;
+    btnFinish.disabled = true;
+});
