@@ -1,5 +1,5 @@
 const btnStart = document.querySelector('button[data-start]');
-const btnFinish = document.querySelector('button[data-finish]');
+const btnFinish = document.querySelector('button[data-stop]');
 const bodyColor = document.querySelector('body');
 
 let timerId = null;
