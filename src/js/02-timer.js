@@ -15,9 +15,10 @@ const options = {
 const refs = {
     input: document.querySelector('#datetime-picker'),
     btnStart: document.querySelector('[data-start]'),
-    hours: document.querySelector('#data-hours'),
-    minutes: document.querySelector('#data-minutes'),
-    seconds: document.querySelector('#data-seconds'),
+    days: document.querySelector('[data-days]'),
+    hours: document.querySelector('[data-hours]'),
+    minutes: document.querySelector('[data-minutes]'),
+    seconds: document.querySelector('[data-seconds]'),
 };
 
 function convertMs(ms) {
