@@ -64,7 +64,7 @@ function onStart() {
 }
 
 function addLeadingZero(value) {
-    return String(value).addLeadingZeroStart(2, '0');
+    return String(value).padStart(2, '0');
 }
 function updateMarkup({ days, hours, minutes, seconds }) {
     refs.days.textContent = addLeadingZero(days);

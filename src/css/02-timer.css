@@ -1,0 +1,21 @@
+.calendar { 
+    display: flex;
+    justify-content: center;
+}
+input,
+button {
+    font-size: 2rem;
+}
+.timer {
+    display: flex;
+    justify-content: center;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 15px;
+}
+.value {
+    font-size: 6rem;
+}
