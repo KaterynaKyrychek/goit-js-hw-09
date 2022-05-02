@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KaterynaKyrychek/goit-js-hw-08.git"
+    "url": "git+https://github.com/KaterynaKyrychek/goit-js-hw-09.git"
   },
   "keywords": [],
   "author": "Ekaterina Kirichek <ekaterinakirichek16@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KaterynaKyrychek/goit-js-hw-08/issues"
+    "url": "https://github.com/KaterynaKyrychek/goit-js-hw-09/issues"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
