@@ -1,6 +1,6 @@
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
-import { Notify } from "notiflix";
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
+import { Notify } from 'notiflix';
 
 const options = {
     enableTime: true,
@@ -10,7 +10,7 @@ const options = {
     onClose(selectedDates) {
         onCalendarClose(selectedDates[0]);
     },
-    };
+};
 
 const refs = {
     input: document.querySelector('#datetime-picker'),
@@ -22,23 +22,23 @@ const refs = {
 };
 
 function convertMs(ms) {
-    // Number of milliseconds per unit of time
+  // Number of milliseconds per unit of time
     const second = 1000;
     const minute = second * 60;
     const hour = minute * 60;
     const day = hour * 24;
 
-    // Remaining days
+  // Remaining days
     const days = Math.floor(ms / day);
-    // Remaining hours
+  // Remaining hours
     const hours = Math.floor((ms % day) / hour);
-    // Remaining minutes
+  // Remaining minutes
     const minutes = Math.floor(((ms % day) % hour) / minute);
-    // Remaining seconds
+  // Remaining seconds
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
     return { days, hours, minutes, seconds };
-    };
+}
 
 let chosenDate = Date.now();
 refs.btnStart.disabled = true;
@@ -48,7 +48,8 @@ const fp = flatpickr(refs.input, options);
 
 function onCalendarClose(date) {
     if (Date.now() > date) {
-        Notify.failure('Please choose a date in the future');
+    Notify.failure('Please choose a date in the future');
+    return;
     }
     refs.btnStart.disabled = false;
     chosenDate = date;
@@ -57,9 +58,19 @@ function onStart() {
     refs.btnStart.disabled = true;
     refs.input.disabled = true;
     fp.destroy();
-    setInterval(() => {
-        const restTime = convertMs(chosenDate - Date.now());
-        updateMarkup(restTime);
+    const timerId = setInterval(() => {
+    const restTime = convertMs(chosenDate - Date.now());
+    console.log(restTime);
+    if (
+        restTime.days <= 0 &&
+        restTime.hours <= 0 &&
+        restTime.minutes <= 0 &&
+        restTime.seconds <= 0
+    ) {
+        clearInterval(timerId);
+    }
+
+    updateMarkup(restTime);
     }, 1000);
 }
 
